@@ -19,8 +19,6 @@ const margin = { top: 30, right: 150, bottom: 44, left: 64 };
 const innerW = width - margin.left - margin.right;
 const innerH = height - margin.top - margin.bottom;
 
-const WORLD_AVG = 4.73;    // world per-person emissions in 2024 (tonnes)
-
 // fixed colors so the six focus countries look the same in every scene
 const colors = {
   "World": "#3d4552",
@@ -218,14 +216,18 @@ function drawBase(countries, whichMetric, options) {
       .text(s.country);
   }
 
-  // dashed world-average reference line for the per-person scenes
-  if (options.worldAvg && WORLD_AVG < y.domain()[1]) {
-    g.append("line").attr("class", "ref-line")
-      .attr("x1", 0).attr("x2", innerW)
-      .attr("y1", y(WORLD_AVG)).attr("y2", y(WORLD_AVG));
-    g.append("text").attr("class", "ref-label")
-      .attr("x", 250).attr("y", y(WORLD_AVG) + 15)
-      .text("World average, 2024: 4.7 t per person");
+  // dashed world-average line for the per-person scenes: the actual World
+  // series, so each country is compared against the average of its own era
+  if (options.worldAvg && !countries.includes("World")) {
+    const world = getSeries("World", "percap");
+    if (world.length > 0 && d3.max(world, p => p.value) < y.domain()[1]) {
+      g.append("path").attr("class", "ref-line")
+        .attr("fill", "none")
+        .attr("d", lineGen(world));
+      g.append("text").attr("class", "ref-label")
+        .attr("x", x(1975)).attr("y", y(getValue("World", 1975, "percap")) - 13)
+        .text("World average");
+    }
   }
 
   return { g: g, x: x, y: y };
