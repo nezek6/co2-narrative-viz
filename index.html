@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who Is Heating the Planet? A Narrative Visualization of Global CO2 Emissions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="kicker">CS 416 Narrative Visualization</p>
+      <h1>Who Is Heating the Planet?</h1>
+      <p class="byline">Global CO2 emissions, 1850-2024. Data: Our World in Data / Global Carbon Budget</p>
+    </header>
+
+    <nav id="scene-nav">
+      <button id="btn-back" type="button">&#9664; Back</button>
+      <div id="scene-dots"></div>
+      <button id="btn-next" type="button">Next &#9654;</button>
+    </nav>
+
+    <section id="scene-header">
+      <h2 id="scene-title"></h2>
+      <p id="scene-subtitle"></p>
+    </section>
+
+    <div id="explore-hint" class="hidden">
+      Now you can explore: <strong>add or remove countries</strong>,
+      <strong>switch between total and per person</strong>, and <strong>hover over the chart</strong> to see exact values.
+    </div>
+
+    <div id="controls" class="hidden">
+      <span class="metric-label">Metric:</span>
+      <span>
+        <label><input type="radio" name="metric" value="total" checked> Total emissions</label>
+        <label><input type="radio" name="metric" value="percap"> Per person</label>
+      </span>
+      <select id="country-select"><option value="">+ Add a country...</option></select>
+      <div id="chips"></div>
+    </div>
+
+    <svg id="chart" viewBox="0 0 960 540"></svg>
+
+    <p id="scene-copy"></p>
+
+    <footer>
+      <p>Emissions from fossil fuels and industry only; land-use change is not included.
+      Source: <a href="https://ourworldindata.org/co2-emissions" target="_blank">Our World in Data</a>,
+      based on the Global Carbon Budget (2024). Built with d3.js for UIUC CS 416.</p>
+    </footer>
+  </main>
+
+  <div id="tooltip"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
