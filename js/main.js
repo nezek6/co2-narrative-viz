@@ -283,9 +283,10 @@ function drawScene3() {
   annotate(c.g, c.x(1973), c.y(getValue("United States", 1973, "percap")), -195, 12,
     "US peak: 1973",
     ["Per person, US emissions", "peaked in 1973 at 22 tonnes.", "They are down 36% since."]);
-  annotate(c.g, c.x(1913), c.y(getValue("United Kingdom", 1913, "percap")), -185, -110,
-    "UK: back below average",
-    ["The UK led the world in 1913.", "Today it is below the", "world average per person."]);
+  annotate(c.g, c.x(1971), c.y(getValue("United Kingdom", 1971, "percap")), -80, -32,
+    "UK peak: 1971", []);
+  annotate(c.g, c.x(2022), c.y(getValue("United Kingdom", 2022, "percap")), 17, 26,
+    "2022: below average", []);
   annotate(c.g, c.x(2024), c.y(getValue("China", 2024, "percap")), 8, 40,
     "China: 8.7 t", ["now above Europe"]);
   annotate(c.g, c.x(2024), c.y(getValue("India", 2024, "percap")), 8, 26,
