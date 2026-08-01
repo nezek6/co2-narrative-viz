@@ -38,7 +38,7 @@ h1 { margin: 4px 0 2px; font-size: 30px; }
   gap: 18px;
   margin: 16px 0 6px;
 }
-#scene-nav button {
+#scene-nav > button {
   font: inherit;
   font-size: 14px;
   padding: 7px 16px;
@@ -47,8 +47,8 @@ h1 { margin: 4px 0 2px; font-size: 30px; }
   background: #fff;
   cursor: pointer;
 }
-#scene-nav button:hover:enabled { background: #eef4fa; }
-#scene-nav button:disabled { opacity: 0.35; cursor: default; }
+#scene-nav > button:hover:enabled { background: #eef4fa; }
+#scene-nav > button:disabled { opacity: 0.35; cursor: default; }
 
 #scene-dots { display: flex; gap: 10px; }
 .dot {
