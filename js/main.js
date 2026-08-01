@@ -1,6 +1,6 @@
 // Who Is Heating the Planet? (CS 416 narrative visualization)
 // Martini glass structure: scenes 1-3 tell the story, scene 4 is free exploration.
-// Data: Our World in Data (Global Carbon Budget 2024), preprocessed into data/co2.csv
+// Data: Our World in Data (Global Carbon Budget 2025), preprocessed into data/co2.csv
 
 // ---------------- parameters (the state of the visualization) ----------------
 const focusCountries = ["China", "United States", "India", "Russia", "Japan", "United Kingdom"];
@@ -51,8 +51,9 @@ const scenes = [
     copy: "For most of this history, emissions came from the West. Britain was the biggest " +
       "emitter in the 1800s, and the US led through the whole 20th century until it peaked " +
       "in 2005 (it is down about 20% since). Then China industrialized faster than any " +
-      "country ever, passed the US in 2006, and now emits more than the US, Europe and " +
-      "India combined. India is now third. But totals are only part of the story."
+      "country ever, passed the US in 2006, and now emits more than the other five " +
+      "countries in this chart combined. India is now third. But totals are only part " +
+      "of the story."
   },
   {
     title: "Per Person, It Looks Different",
@@ -273,7 +274,7 @@ function drawScene2() {
     ["In 1850, Britain alone", "produced 62% of the", "world's CO2 emissions."]);
   annotate(c.g, c.x(2006), c.y(getValue("China", 2006, "total")), -190, -140,
     "China passes the US in 2006",
-    ["China industrialized faster than", "any country in history. It now", "emits more than the US, EU", "and India combined."]);
+    ["China industrialized faster than", "any country in history. It now", "emits more than the other five", "countries in this chart combined."]);
   annotate(c.g, c.x(2005), c.y(getValue("United States", 2005, "total")), -105, -12,
     "US peak: 2005", []);
 }
@@ -288,7 +289,7 @@ function drawScene3() {
   annotate(c.g, c.x(2022), c.y(getValue("United Kingdom", 2022, "percap")), 17, 26,
     "2022: below average", []);
   annotate(c.g, c.x(2024), c.y(getValue("China", 2024, "percap")), 8, 40,
-    "China: 8.7 t", ["now above Europe"]);
+    "China: 8.7 t", ["1.8x the world average"]);
   annotate(c.g, c.x(2024), c.y(getValue("India", 2024, "percap")), 8, 26,
     "India: 2.2 t", ["6.5x below the US"]);
 }
